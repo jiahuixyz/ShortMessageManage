@@ -16,7 +16,7 @@
 
 使用说明：
 
-1. 导入脚本，建表语句和一些初始数据
+1. 导入脚本message_0807.sql和user_0807.sql，其中包含了建表语句和一些初始数据
 2. 修改WebContent\META-INF\context.xml文件中配置的数据库连接信息
 3. 登录账号lili，密码123
 
