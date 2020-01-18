@@ -27,14 +27,16 @@ public class AuthorityFilter implements Filter {
 		HttpServletResponse resp=(HttpServletResponse)response;
 		//设置字符集
 		requ.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;charset=UTF-8");
-		HttpSession session = requ.getSession();
 		String path = requ.getServletPath();
+
 		//静态文件直接放行
 		if(path.endsWith(".css")||path.endsWith(".js")) {
 			chain.doFilter(request, response);
 			return;
 		}
+
+		resp.setContentType("text/html;charset=UTF-8");
+		HttpSession session = requ.getSession();
 		//如果session内user为null，且请求的既不是登陆页面也不是处理登陆页面，将其转到登陆页面
 		if (session.getAttribute("user") == null 
 				&& !path.endsWith("login") && !path.endsWith("login.jsp")
